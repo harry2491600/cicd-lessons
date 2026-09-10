@@ -15,9 +15,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-          cache: npm
       - name: Install dependencies
-        run: npm ci
+        run: npm install --no-audit --no-fund
       - name: Run unit tests
         run: npm run test:unit
 
@@ -31,9 +30,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-          cache: npm
       - name: Install dependencies
-        run: npm ci
+        run: npm install --no-audit --no-fund
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
       - name: Run Playwright tests
